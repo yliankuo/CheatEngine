@@ -7,6 +7,13 @@ class Worker:
         self
 
     @staticmethod
+    def worker(unit, gc):
+        replicate(gc, unit, directions)
+        build_blueprint(unit, gc, nearby)
+        place_factory(unit, gc, directions)
+        try_mine(unit, gc, point)
+        
+    @staticmethod
     def build_blueprint(unit, gc, nearby_units):
         for other in nearby_units:
             if gc.can_build(unit.id, other.id):
@@ -25,4 +32,6 @@ class Worker:
         d = random.choice(directions)
         if gc.can_replicate(unit.id, d):
             gc.replicate(unit.id, d)
-            print("replicated")
+
+    def try_mine(gc, unit, point):
+        
