@@ -37,6 +37,7 @@ def resolve_unit(unit):
     if unit.unit_type == bc.UnitType.Factory:
         factory.unload_garrison(unit, gc, directions)
     if unit.unit_type == bc.UnitType.Worker:
+        worker.replicate(gc, unit, directions)
         worker.build_blueprint(unit, gc, nearby)
         worker.place_factory(unit, gc, directions)
         utilities.move(unit, gc, random.choice(directions))

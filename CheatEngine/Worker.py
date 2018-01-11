@@ -19,3 +19,10 @@ class Worker:
         if gc.karbonite() > bc.UnitType.Factory.blueprint_cost() and gc.can_blueprint(unit.id, bc.UnitType.Factory, d):
             gc.blueprint(unit.id, bc.UnitType.Factory, d)
             print('placed blueprint factory')
+
+    @staticmethod
+    def replicate(gc, unit, directions):
+        d = random.choice(directions)
+        if gc.can_replicate(unit.id, d):
+            gc.replicate(unit.id, d)
+            print("replicated")
