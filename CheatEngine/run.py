@@ -33,7 +33,6 @@ random.seed(6137)
 
 # Define Functions that we will call within the method
 def resolve_unit(unit):
-    nearby = gc.sense_nearby_units(unit.location.map_location(), 2)
     if unit.unit_type == bc.UnitType.Factory:
         factory.unload_garrison(unit, gc, directions)
     if unit.unit_type == bc.UnitType.Worker:
