@@ -34,7 +34,7 @@ random.seed(6137)
 # Define Functions that we will call within the method
 def resolve_unit(unit):
     if unit.unit_type == bc.UnitType.Factory:
-        factory.unload_garrison(unit, gc, directions)
+        factory.factory(unit, gc)
     if unit.unit_type == bc.UnitType.Worker:
         worker.worker(unit, gc)
         utilities.move(unit, gc, random.choice(directions))
