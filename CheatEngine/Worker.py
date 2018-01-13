@@ -1,11 +1,12 @@
 import random
 import battlecode as bc
 
-#Replicate
+
 def replicate(gc, unit, directions):
     d = random.choice(directions)
     if gc.can_replicate(unit.id, d):
         gc.replicate(unit.id, d)
+        print("replicated")
 
 
 def build_blueprint(unit, gc, nearby_units):
@@ -21,7 +22,6 @@ def place_factory(unit, gc, directions):
         gc.blueprint(unit.id, bc.UnitType.Factory, d)
         print('placed blueprint factory')
 
-
 def try_mine(gc, unit, point):
     gc
 
@@ -31,12 +31,13 @@ class Worker:
         self
 
     @staticmethod
-    def worker(unit, gc):
+    def worker(unit, gc, earth_map, mars_map, movelist):
         nearby = gc.sense_nearby_units(unit.location.map_location(), 2)
         directions = list(bc.Direction)
         replicate(gc, unit, directions)
         build_blueprint(unit, gc, nearby)
         place_factory(unit, gc, directions)
+
         # try_mine(unit, gc, point)
         
 
@@ -44,4 +45,3 @@ class Worker:
 
 
 
-        
