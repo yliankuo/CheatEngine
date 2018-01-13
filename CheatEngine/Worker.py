@@ -1,7 +1,7 @@
 import random
 import battlecode as bc
 
-
+#Replicate
 def replicate(gc, unit, directions):
     d = random.choice(directions)
     if gc.can_replicate(unit.id, d):
